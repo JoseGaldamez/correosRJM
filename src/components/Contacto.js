@@ -245,7 +245,7 @@ function Contacto () {
                 <select className="form-select" value={pais} onChange={handlePais} aria-label="Default select example" id="pais">
                     <option value="Canadá" defaultValue>Canadá</option>
                     <option value="Estados Unidos (Miami)" >Estados Unidos (Miami) </option>
-                    <option value="USA" >Estados Unidos (Excepto Miami) --</option>
+                    <option value="USA" >Estados Unidos (Excepto Miami)</option>
                     <option value="México (Ciudad de México, centro y norte del país)">México (Ciudad de México, centro y norte del país) </option>
                     <option value="México (Chiapas, Tapachula)">México (Chiapas, Tapachula)</option>
                     <option value="México (Chiapas, Comalapa y sur del país)">México (Chiapas, Comalapa y sur del país)</option>
@@ -266,7 +266,7 @@ function Contacto () {
             </div>
 
             <div className="mb-3">
-                <label htmlFor="mensaje" className="form-label">Example textarea</label>
+                <label htmlFor="mensaje" className="form-label">Cuerpo del mensaje:</label>
                 <textarea value={mensaje} placeholder="Aqui el mensaje..." onChange={handleMensaje} className="form-control" id="mensaje" rows="3">
                     
                 </textarea>
