@@ -76,9 +76,6 @@ function Contacto () {
                 console.log(error);
             });
 
-
-
-            alert("Mensaje enviado");
             setname("");
             setemail("");
             setmensaje("");
@@ -241,7 +238,7 @@ function Contacto () {
                 <input type="email" value={email} onChange={handleEmail} className="form-control" id="email" placeholder="nombre@ejemplo.com" />
             </div>
             <div className="mb-3">
-                <label htmlFor="pais" className="form-label">En qué país se encuentra:</label>
+                <label htmlFor="pais" className="form-label">País del que requiere apoyo:</label>
                 <select className="form-select" value={pais} onChange={handlePais} aria-label="Default select example" id="pais">
                     <option value="Canadá" defaultValue>Canadá</option>
                     <option value="Estados Unidos (Miami)" >Estados Unidos (Miami) </option>
