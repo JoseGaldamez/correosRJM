@@ -144,8 +144,8 @@ function Contacto () {
             referente = "angel.esc.gt@gmail.com";
         }
         if (country === "Honduras") {
-            referente = "josegaldamez1991@gmail.com";
-            //referente = "keylacanales@eric-sj.org";
+            //referente = "josegaldamez1991@gmail.com";
+            referente = "keylacanales@eric-sj.org";
         }
         if (country === "El Salvador") {
             referente = "gferrer@uca.edu.sv";
