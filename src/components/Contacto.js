@@ -281,7 +281,7 @@ function Contacto () {
             </div>
             <br/>
             <div className="mb-3">
-                <label htmlFor="pais" className="form-label">País del que requiere apoyo:</label>
+                <label htmlFor="pais" className="form-label">País del que requiere apoyo usted o su familiar:</label>
                 <select className="form-select" value={pais} onChange={handlePais} aria-label="Default select example" id="pais">
                     <option value="Canadá" defaultValue>Canadá</option>
                     <option value="Estados Unidos (Miami)" >Estados Unidos (Miami) </option>
