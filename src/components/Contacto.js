@@ -9,10 +9,13 @@ function Contacto () {
 
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
+    const [phone, setphone] = useState("");
+    const [extension, setextension] = useState("");
     const [pais, setpais] = useState("Canadá");
-    const [asunto, setasunto] = useState("");
+    const [asunto, setasunto] = useState("Solicitud de información");
     const [mensaje, setmensaje] = useState("");
     const [done, setdone] = useState(false);
+    const [error, seterror] = useState(false);
 
     const saveEmail = async () => {
 
@@ -28,6 +31,8 @@ function Contacto () {
                 <p style="font-size: 20px; padding: 10px; background-color: white;">${name}</p>
                 <p style="font-weight: 600;">Correo:</p>
                 <p style="font-size: 20px; padding: 10px; background-color: white;">${email}</p>
+                <p style="font-weight: 600;">Telefono:</p>
+                <p style="font-size: 20px; padding: 10px; background-color: white;">(${extension}) ${phone}</p>
                 <p style="font-weight: 600;">Asunto:</p>
                 <p style="font-size: 20px; padding: 10px; background-color: white;">${asunto}</p>
                 <p style="font-weight: 600;">Pais:</p>
@@ -79,8 +84,10 @@ function Contacto () {
             setname("");
             setemail("");
             setmensaje("");
-            setasunto("");
+            setasunto("Solicitud de información");
             setpais("Canadá");
+            setphone("");
+            setextension("");
 
             setdone(true);
             
@@ -93,8 +100,9 @@ function Contacto () {
     const validar = () => {
         let validacion = true;
 
-        if (name === "" || pais === "" || asunto === "" || mensaje === "") {
+        if (name === "" || pais === "" || email === "" || asunto === "" || mensaje === "" || extension === "" || phone ==="" ) {
             validacion = false;
+            seterror(true);
         }
 
         return validacion;
@@ -136,8 +144,8 @@ function Contacto () {
             referente = "angel.esc.gt@gmail.com";
         }
         if (country === "Honduras") {
-            //referente = "iolanyradio@gmail.com";
-            referente = "keylacanales@eric-sj.org";
+            referente = "josegaldamez1991@gmail.com";
+            //referente = "keylacanales@eric-sj.org";
         }
         if (country === "El Salvador") {
             referente = "gferrer@uca.edu.sv";
@@ -168,29 +176,56 @@ function Contacto () {
 
     const handleName = (event) => {
         setname(event.target.value);
+        if (error) {
+            seterror(false);
+        }
     }
     const handleEmail = (event) => {
         setemail(event.target.value);
+        if (error) {
+            seterror(false);
+        }
     }
     const handlePais = (event) => {
         setpais(event.target.value);
+        if (error) {
+            seterror(false);
+        }
     }
     const handleAsunto = (event) => {
         setasunto(event.target.value);
+        if (error) {
+            seterror(false);
+        }
     }
     const handleMensaje = (event) => {
         setmensaje(event.target.value);
+        if (error) {
+            seterror(false);
+        }
+    }
+    const handleExtension = (event) => {
+        setextension(event.target.value);
+        if (error) {
+            seterror(false);
+        }
+    }
+    const handlePhone = (event) => {
+        setphone(event.target.value);
+        if (error) {
+            seterror(false);
+        }
     }
 
     const clearForm = () => {
 
-            
             setname("");
             setemail("");
             setmensaje("");
-            setasunto("");
+            setasunto("Solicitud de información");
             setpais("Canadá");
-
+            setextension("");
+            setphone("");
             setdone(false);
     }
 
@@ -233,10 +268,18 @@ function Contacto () {
                 <label htmlFor="nombre" className="form-label">Escriba su nombre:</label>
                 <input type="text" value={name} onChange={handleName} className="form-control" id="nombre" placeholder="Nombre..." />
             </div>
+
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Su correo electrónico:</label>
                 <input type="email" value={email} onChange={handleEmail} className="form-control" id="email" placeholder="nombre@ejemplo.com" />
             </div>
+
+            <label htmlFor="extension" className="form-label">Número de teléfono (incluya extensión):</label>
+            <div className="input-group">
+                <input type="text" id="extension" placeholder="Extension" value={extension} onChange={handleExtension} aria-label="Extension" className="form-control extension" />
+                <input type="text" id="phone" placeholder="Teléfono" value={phone} onChange={handlePhone} aria-label="Telefono" className="form-control phone" />
+            </div>
+            <br/>
             <div className="mb-3">
                 <label htmlFor="pais" className="form-label">País del que requiere apoyo:</label>
                 <select className="form-select" value={pais} onChange={handlePais} aria-label="Default select example" id="pais">
@@ -258,8 +301,12 @@ function Contacto () {
             </div>
            
             <div className="mb-3">
-                <label htmlFor="asunto" className="form-label">Motivo del correo:</label>
-                <input type="text" value={asunto} onChange={handleAsunto} className="form-control" id="asunto" placeholder="Escribo porque..." />
+                <label htmlFor="asunto" className="form-label">Seleccionar tipo de apoyo requerido:</label>
+                <select className="form-select" value={asunto} onChange={handleAsunto} aria-label="Default select example" id="asunto">
+                    <option value="Solicitud de información" defaultValue>Solicitud de información</option>
+                    <option value="Gestión de documentos, trámites y otros apoyos">Gestión de documentos, trámites y otros apoyos</option>
+                    <option value="Acompañamiento de casos">Acompañamiento de casos</option>
+                </select>
             </div>
 
             <div className="mb-3">
@@ -268,7 +315,11 @@ function Contacto () {
                     
                 </textarea>
             </div>
-
+            {
+                (error) ? <div class="alert alert-danger" role="alert">
+                                Faltan algunos datos, asegurese llenar el formulario.
+                          </div> : ""
+            }
 
             <button className="btn btn-primary" onClick={saveEmail} >Enviar correo</button>
             <br/>

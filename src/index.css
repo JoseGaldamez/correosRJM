@@ -30,3 +30,11 @@ code {
   width: 80%;
   max-width: 500px;
 }
+
+.phone{
+  width: 80% !important;
+}
+
+.extension{
+  width: 20% !important;
+}
