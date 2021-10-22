@@ -205,7 +205,11 @@ function Contacto () {
         }
     }
     const handleExtension = (event) => {
-        setextension(event.target.value);
+        if (event.target.value.length === 1 && event.target.value !== "+") {
+            setextension("+" + event.target.value);
+        } else {
+            setextension(event.target.value);
+        }
         if (error) {
             seterror(false);
         }
@@ -274,9 +278,10 @@ function Contacto () {
                 <input type="email" value={email} onChange={handleEmail} className="form-control" id="email" placeholder="nombre@ejemplo.com" />
             </div>
 
-            <label htmlFor="extension" className="form-label">Número de teléfono (incluya extensión):</label>
+            <label htmlFor="extension" className="form-label">Número de teléfono (incluya el código de país):</label>
             <div className="input-group">
-                <input type="text" id="extension" placeholder="Extension" value={extension} onChange={handleExtension} aria-label="Extension" className="form-control extension" />
+            
+                <input type="text" id="extension" placeholder="Código" value={extension} onChange={handleExtension} aria-label="Extension" className="form-control extension" />
                 <input type="text" id="phone" placeholder="Teléfono" value={phone} onChange={handlePhone} aria-label="Telefono" className="form-control phone" />
             </div>
             <br/>
