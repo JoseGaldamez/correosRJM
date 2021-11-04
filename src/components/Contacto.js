@@ -123,7 +123,7 @@ function Contacto () {
             referente = "silviam46@gmail.com";
         }
         if (country === "USA") {
-            referente = "jornelas@kinoborderinitiative.org";
+            referente = "jovana.nieto@jrsusa.org";
         }
 
 
