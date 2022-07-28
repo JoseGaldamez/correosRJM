@@ -183,6 +183,7 @@ function Contacto() {
         "gferrer@uca.edu.sv",
         "odiaz@uca.edu.sv",
         "rderas@uca.edu.sv",
+        "atencion.regional@rjmcentroamerica.org",
       ];
     }
     if (country === "Nicaragua") {
